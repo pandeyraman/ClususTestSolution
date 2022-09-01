@@ -44,7 +44,7 @@ public class FXDealServiceImpl implements FXDealService {
     @Override
     public FXDeal findFXDealById(Long fxDealId) throws FXDealNotFoundException {
         Optional<FXDeal> fxDeal = fxDealRepository.findById(fxDealId);
-        if (!fxDeal.isPresent()) {
+        if (fxDeal.isEmpty()) {
             throw new FXDealNotFoundException("FX Deal not available");
         }
         return fxDeal.get();
