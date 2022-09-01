@@ -30,9 +30,7 @@ public class FXDealServiceImpl implements FXDealService {
 
     @Override
     public FXDeal saveFxDeal(FXDeal fxDeal) throws FXDealInvalidDataException, FXDealAlreadyExistsException {
-        if (fxDeal == null) {
-            System.out.println(fxDeal.toString());
-        }
+
         if (fxDealAlreadyExists(fxDeal)) {
             throw new FXDealAlreadyExistsException("Deal Already exists with dealId :" + fxDeal.getDealId());
         }
